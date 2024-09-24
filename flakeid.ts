@@ -50,7 +50,7 @@ export class FlakeId {
     this.lastTime = time;
 
     // (time << (MID_BIT_SIZE + SEQ_BIT_SIZE)) | (mid << (SEQ_BIT_SIZE)) | (seq)
-    return (BigInt(time) << 22n) | (this.mid << 12n) | BigInt(this.seq);
+    return (BigInt(time - this.timeOffset) << 22n) | (this.mid << 12n) | BigInt(this.seq);
   }
 }
 

@@ -9,5 +9,5 @@ const createMID = (a, b) => {
     return BigInt((a << 5) | (b))
 }
 
-const flake = new FlakeId({ mid: createMID(WORKER_ID, SERVER_ID) })
+const flake = new FlakeId({ mid: createMID(WORKER_ID, SERVER_ID), timeOffset: new Date(2019, 9, 7).getTime() })
 console.log(flake.gen())
