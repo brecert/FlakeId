@@ -6,7 +6,6 @@ export interface FlakeIDParams {
 }
 export interface DecodedFlakeId {
     timestamp: number;
-    date: Date;
     mid: bigint;
     seq: number;
 }

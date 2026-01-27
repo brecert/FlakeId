@@ -13,7 +13,6 @@ const MID_MAX = (2 ** MID_BIT_SIZE) - 1
 
 export interface DecodedFlakeId {
   timestamp: number
-  date: Date
   mid: bigint
   seq: number
 }
@@ -64,11 +63,9 @@ export class FlakeId {
     const seq = Number(id & BigInt(SEQ_MAX))
     const mid = (id >> BigInt(SEQ_BIT_SIZE)) & BigInt(MID_MAX)
     const timestamp = Number(id >> 22n) + this.timeOffset
-    const date = new Date(timestamp)
 
     return {
       timestamp,
-      date,
       mid,
       seq
     }
