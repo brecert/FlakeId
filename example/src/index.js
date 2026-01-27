@@ -10,4 +10,8 @@ const createMID = (a, b) => {
 }
 
 const flake = new FlakeId({ mid: createMID(WORKER_ID, SERVER_ID), timeOffset: new Date(2019, 9, 7).getTime() })
-console.log(flake.gen())
+
+const id = flake.gen();
+
+console.log(id);
+console.log(flake.decode(id));

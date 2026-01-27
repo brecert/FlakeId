@@ -4,6 +4,11 @@ export interface FlakeIDParams {
     timeOffset?: number;
     lastTime?: number;
 }
+export interface DecodedFlakeId {
+    timestamp: number;
+    mid: bigint;
+    seq: number;
+}
 export declare class FlakeId {
     seq: number;
     mid: bigint;
@@ -11,6 +16,7 @@ export declare class FlakeId {
     lastTime: number;
     constructor({ seq, mid, timeOffset, lastTime }?: FlakeIDParams);
     gen(): bigint;
+    decode(id: bigint): DecodedFlakeId;
 }
 export default FlakeId;
 //# sourceMappingURL=flakeid.d.ts.map
